@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './Kitchen.module.scss';
 import { Link } from 'react-router-dom';
 
+
 const Kitchen = () => (
   <div className={styles.component}>
     <h2>Kitchen view</h2>
