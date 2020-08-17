@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './Login.module.scss';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -9,8 +8,9 @@ import Container from '@material-ui/core/Container';
 const useStyles = makeStyles((theme) => ({
   root: {
     '& > *': {
-      margin: theme.spacing(3),
+      margin: theme.spacing(1),
       width: '30ch',
+      padding: '40px',
     },
   },
 }));
@@ -21,9 +21,9 @@ const Login  = () => {
   const classes = useStyles();
 
   return (
-    <Card className={styles.component}>
+    <Card className={classes.root}>
       <Container maxWidth="lg">
-        <form className={classes.root} noValidate autoComplete="off"> 
+        <form  noValidate autoComplete="off"> 
           <TextField id="outlined-basic" label="Login" variant="outlined" />
           <TextField id="outlined-basic" label="Password" variant="outlined" />
         </form>

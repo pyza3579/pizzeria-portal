@@ -53,3 +53,12 @@
         -numer stolika lub zamowienia zdalnego
         -pelne informacje dotyczace zamowionych dan
     -na liscie musi byc mozliwosc oznaczenia zamowienia jako zrealizowanego
+
+
+  <div className={styles.component}>
+    <h2>Tables view</h2>
+    <Link to ={`${process.env.PUBLIC_URL}/tables/booking/:id`}></Link>   
+    <Link to ={`${process.env.PUBLIC_URL}/tables/events/:id`}></Link> 
+    <Link to ={`${process.env.PUBLIC_URL}/tables/booking/new`}></Link>   
+    <Link to ={`${process.env.PUBLIC_URL}/tables/events/new`}></Link>  
+  </div>
