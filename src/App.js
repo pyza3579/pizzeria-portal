@@ -4,7 +4,11 @@ import MainLayout from './components/layout/MainLayout/MainLayout';
 import Kitchen from './components/views/Kitchen/Kitchen';
 import Login from './components/views/Login/Login';
 import Tables from './components/views/Tables/Tables';
+//import TableOrderNew from './components/views/Table/TableOrderNew'; do zrobienia
+//import TableOrderId from './components/views/Table/TableOrderId';  do zrobienia
 import Waiter from './components/views/Waiter/WaiterContainer';
+import WaiterOrderNew from './components/views/Waiter/WaiterOrderNew';
+import WaiterOrderId from './components/views/Waiter/WaiterOrderId';
 import Dashboard from './components/views/Dashboard/Dashboard';
 import { StylesProvider } from '@material-ui/core/styles';
 import { createMuiTheme } from '@material-ui/core/styles';
@@ -39,6 +43,8 @@ function App() {
                 <Route exact path={`${process.env.PUBLIC_URL}/tables`} component={Tables} />
                 <Route exact path={`${process.env.PUBLIC_URL}/waiter`} component={Waiter} />
                 <Route exact path={`${process.env.PUBLIC_URL}/kitchen`} component={Kitchen} />
+                <Route exact path={`${process.env.PUBLIC_URL}/waiter/order/new`} component={WaiterOrderNew} />  
+                <Route exact path={`${process.env.PUBLIC_URL}/waiter/order/booking/:id`} component={WaiterOrderId} />  
               </Switch>
             </MainLayout>
           </ThemeProvider>
