@@ -8,16 +8,25 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
-
+import {NavLink} from 'react-router-dom';
 
 class Waiter extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+
+  }
+
   static propTypes = {
-    fetchTables: PropTypes.func,
+    fetchTables: PropTypes.func,  
     loading: PropTypes.shape({
       active: PropTypes.bool,
-      error: PropTypes.oneOfType(PropTypes.bool,PropTypes.string),
+      error: PropTypes.any,
     }),
-    tables:PropTypes.oneOfType(PropTypes.bool,PropTypes.string), //?
+    updateTables: PropTypes.func,
+    tables: PropTypes.any,
+    update: PropTypes.any,
   }
 
   componentDidMount(){
@@ -25,34 +34,43 @@ class Waiter extends React.Component {
     fetchTables();
   }
 
-  renderActions(status){
+  handleClick(status, rowId, event) {
+    console.log('event onClick',event);
+    console.log('status onClick',status);
+    console.log('rowId onClick',rowId);
+
+    const { updateTables } = this.props;
+    updateTables(rowId, status);
+  }
+
+  renderActions(status, rowId){
     switch (status) {
       case 'free':
         return (
           <>
-            <Button>thinking</Button>
-            <Button>new order</Button>
+            <Button onClick={(e) => this.handleClick('thinking', rowId, e)}>thinking</Button>
+            <Button component={NavLink} to={`${process.env.PUBLIC_URL}/waiter/order/new`}>new order</Button>
           </>
         );
       case 'thinking':
         return (
-          <Button>new order</Button>
+          <Button component={NavLink} to={`${process.env.PUBLIC_URL}/waiter/order/new`}>new order</Button>
         );
       case 'ordered':
         return (
-          <Button>prepared</Button>
+          <Button onClick={(e) => this.handleClick('prepared', rowId, e)}>prepared</Button>
         );
       case 'prepared':
         return (
-          <Button>delivered</Button>
+          <Button onClick={(e) => this.handleClick('delivered', rowId, e)}>delivered</Button>
         );
       case 'delivered':
         return (
-          <Button>paid</Button>
+          <Button onClick={(e) => this.handleClick('paid', rowId, e)}>paid</Button>
         );
       case 'paid':
         return (
-          <Button>free</Button>
+          <Button onClick={(e) => this.handleClick('free', rowId, e)}>free</Button>
         );
       default:
         return null;
@@ -104,7 +122,7 @@ class Waiter extends React.Component {
                     )}
                   </TableCell>
                   <TableCell>
-                    {this.renderActions(row.status)}
+                    {this.renderActions(row.status, row.id)}
                   </TableCell>
                 </TableRow>
               ))}

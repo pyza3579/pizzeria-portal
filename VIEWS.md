@@ -62,3 +62,5 @@
     <Link to ={`${process.env.PUBLIC_URL}/tables/booking/new`}></Link>   
     <Link to ={`${process.env.PUBLIC_URL}/tables/events/new`}></Link>  
   </div>
+
+  <Link to ={`${process.env.PUBLIC_URL}/kitchen`}></Link>  
