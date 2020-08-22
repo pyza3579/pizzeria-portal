@@ -4,8 +4,9 @@ import MainLayout from './components/layout/MainLayout/MainLayout';
 import Kitchen from './components/views/Kitchen/Kitchen';
 import Login from './components/views/Login/Login';
 import Tables from './components/views/Tables/Tables';
-//import TableOrderNew from './components/views/Table/TableOrderNew'; do zrobienia
-//import TableOrderId from './components/views/Table/TableOrderId';  do zrobienia
+import TableBookingNew from './components/views/Tables/TableBookingNew';
+import TableBookingId from './components/views/Tables/TableBookingId';
+import EventBookingNew from './components/views/Tables/EventBookingNew';
 import Waiter from './components/views/Waiter/WaiterContainer';
 import WaiterOrderNew from './components/views/Waiter/WaiterOrderNew';
 import WaiterOrderId from './components/views/Waiter/WaiterOrderId';
@@ -44,7 +45,10 @@ function App() {
                 <Route exact path={`${process.env.PUBLIC_URL}/waiter`} component={Waiter} />
                 <Route exact path={`${process.env.PUBLIC_URL}/kitchen`} component={Kitchen} />
                 <Route exact path={`${process.env.PUBLIC_URL}/waiter/order/new`} component={WaiterOrderNew} />  
-                <Route exact path={`${process.env.PUBLIC_URL}/waiter/order/booking/:id`} component={WaiterOrderId} />  
+                <Route exact path={`${process.env.PUBLIC_URL}/waiter/order/order/:id`} component={WaiterOrderId} />  
+                <Route exact path={`${process.env.PUBLIC_URL}/tables/booking/new`} component={TableBookingNew} />  
+                <Route exact path={`${process.env.PUBLIC_URL}/tables/booking/:id`} component={TableBookingId} />  
+                <Route exact path={`${process.env.PUBLIC_URL}/tables/event/new`} component={EventBookingNew} />  
               </Switch>
             </MainLayout>
           </ThemeProvider>

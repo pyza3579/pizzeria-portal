@@ -1,19 +1,19 @@
 
 import React from 'react';
-import styles from './Waiter.module.scss';
+import styles from './Tables.module.scss';
 import PropTypes from 'prop-types';
 
 
-const TableOrderId = props=> (
+const TableBookingId = props=> (
   <div className={styles.component}>
     <h2>dd{props.match.params.id}</h2> 
   </div>
 );
 
-TableOrderId.propTypes = {
+TableBookingId.propTypes = {
   match: PropTypes.any,
 };
-export default TableOrderId;
+export default TableBookingId;
 
 
 
