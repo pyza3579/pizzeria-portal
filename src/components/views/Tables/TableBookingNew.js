@@ -1,12 +1,7 @@
 
+ 
 import React from 'react';
-import styles from './Tables.module.scss';
 
+const TablesBookingNew = props => <h2>New booking</h2>;
 
-const TableBookingNew = () => (
-  <div className={styles.component}>
-    <h2>New Booking</h2>  
-  </div>
-);
-
-export default TableBookingNew;
+export default TablesBookingNew;

@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 
 const WaiterOrderId = props=> (
   <div className={styles.component}>
-    <h2>{props.match.params.id}</h2> 
+    <h2>Table number: {props.match.params.id}</h2> 
   </div>
 );
 
